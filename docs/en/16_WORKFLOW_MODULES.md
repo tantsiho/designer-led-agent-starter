@@ -166,3 +166,21 @@ Every batch report should say:
 - every designer correction should be written back into source truth
 - every environment, risk, test, or launch difference discovered should update docs
 - do not make the next agent guess from chat memory again
+
+## 21. Decision Log
+
+- record why decisions were made
+- preserve rejected alternatives
+- make tradeoffs, risks, and reassessment triggers explicit
+- prevent future agents from overturning old decisions without context
+
+## 22. Product Contradiction Audit
+
+- flow conflict
+- business contradiction
+- impossible state
+- incentive mismatch
+- data inconsistency
+- permission contradiction
+- copy contradiction
+- make the agent actively find contradictions instead of only organizing input

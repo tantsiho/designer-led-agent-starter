@@ -88,3 +88,22 @@
 請回報：對應哪個真源、改了什麼、驗證了什麼、沒驗證什麼、有沒有用 mock 或 engineering mode、還需要什麼上線檢查。
 ```
 
+## 要記錄決策時
+
+```text
+請把這個產品決策寫進 DECISION_LOG：為什麼這樣決定、排除了哪些替代方案、取捨是什麼、什麼情況要重估。
+```
+
+```text
+這個決策不是工程 ADR，請用產品語言寫，讓下一個 agent 不會回頭推翻。
+```
+
+## 要找產品矛盾時
+
+```text
+請不要實作。請先用 CONTRADICTION_AUDIT 檢查 flow conflict、business contradiction、impossible state、incentive mismatch 和 data inconsistency。
+```
+
+```text
+請找出這份設計裡哪些地方會讓使用者狀態、資料真源、權限或文案互相矛盾。
+```

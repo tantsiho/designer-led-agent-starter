@@ -167,3 +167,20 @@
 - 每次環境、風險、測試、上線差異被發現，都要更新文件
 - 不讓下一輪代理重新靠聊天記憶猜
 
+## 21. 決策紀錄
+
+- 記錄為什麼這樣決定
+- 保存被排除的 alternative
+- 寫清楚 tradeoff、風險與重估條件
+- 防止後續 agent 在缺少脈絡時推翻舊決策
+
+## 22. 產品矛盾稽核
+
+- flow conflict
+- business contradiction
+- impossible state
+- incentive mismatch
+- data inconsistency
+- permission contradiction
+- copy contradiction
+- 讓 agent 主動發現矛盾，而不是只照單整理

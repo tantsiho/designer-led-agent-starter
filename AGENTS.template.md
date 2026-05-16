@@ -54,11 +54,13 @@
 4. `docs/04_RULES.md`
 5. `docs/06_FLOWS_AND_STATES.md`
 6. `docs/07_CAPABILITY_MAP.md`
-7. `docs/08_ARCHITECTURE_DECISIONS.md`
-8. `docs/09_DATA_SOURCE_OF_TRUTH.md`
-9. `docs/10_ENVIRONMENT_MODEL.md`
-10. `docs/11_RISK_AND_DEFENSE.md`
-11. `docs/12_ACCEPTANCE_AND_VERIFICATION.md`
+7. `docs/17_DECISION_LOG.md`
+8. `docs/18_CONTRADICTION_AUDIT.md`
+9. `docs/08_ARCHITECTURE_DECISIONS.md`
+10. `docs/09_DATA_SOURCE_OF_TRUTH.md`
+11. `docs/10_ENVIRONMENT_MODEL.md`
+12. `docs/11_RISK_AND_DEFENSE.md`
+13. `docs/12_ACCEPTANCE_AND_VERIFICATION.md`
 
 補充：
 
@@ -289,11 +291,13 @@
 1. 設計者補充或修正產品判斷。
 2. 實作時發現原規則不夠精確。
 3. 流程出現未定義狀態、失敗路徑或例外。
-4. 架構選擇、資料真源、外部服務或環境條件改變。
-5. 發現 mock、engineering mode 或本地驗證掩蓋產品缺口。
-6. 發現新的安全、濫用、權限或資料外露風險。
-7. 發現驗收條件不足或測試接受半套。
-8. 某能力被改成現在主線、關閉中、未來工程或歷史參考。
+4. 重要產品決策、替代方案、取捨或重估條件改變。
+5. 架構選擇、資料真源、外部服務或環境條件改變。
+6. 發現 mock、engineering mode 或本地驗證掩蓋產品缺口。
+7. 發現新的產品矛盾、impossible state、誘因不一致或資料真源衝突。
+8. 發現新的安全、濫用、權限或資料外露風險。
+9. 發現驗收條件不足或測試接受半套。
+10. 某能力被改成現在主線、關閉中、未來工程或歷史參考。
 
 回寫目標：
 
@@ -303,6 +307,8 @@
 - 未解問題：`docs/05_PM_QUESTIONS.md`
 - 流程與狀態：`docs/06_FLOWS_AND_STATES.md`
 - 能力閉環：`docs/07_CAPABILITY_MAP.md`
+- 決策紀錄：`docs/17_DECISION_LOG.md`
+- 產品矛盾：`docs/18_CONTRADICTION_AUDIT.md`
 - 架構決策：`docs/08_ARCHITECTURE_DECISIONS.md`
 - 資料真源：`docs/09_DATA_SOURCE_OF_TRUTH.md`
 - 環境差異：`docs/10_ENVIRONMENT_MODEL.md`

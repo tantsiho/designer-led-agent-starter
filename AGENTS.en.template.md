@@ -54,11 +54,13 @@ If a task involves product understanding, flows, identity, payments, orders, per
 4. `docs/en/04_RULES.md`
 5. `docs/en/06_FLOWS_AND_STATES.md`
 6. `docs/en/07_CAPABILITY_MAP.md`
-7. `docs/en/08_ARCHITECTURE_DECISIONS.md`
-8. `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
-9. `docs/en/10_ENVIRONMENT_MODEL.md`
-10. `docs/en/11_RISK_AND_DEFENSE.md`
-11. `docs/en/12_ACCEPTANCE_AND_VERIFICATION.md`
+7. `docs/en/17_DECISION_LOG.md`
+8. `docs/en/18_CONTRADICTION_AUDIT.md`
+9. `docs/en/08_ARCHITECTURE_DECISIONS.md`
+10. `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
+11. `docs/en/10_ENVIRONMENT_MODEL.md`
+12. `docs/en/11_RISK_AND_DEFENSE.md`
+13. `docs/en/12_ACCEPTANCE_AND_VERIFICATION.md`
 
 Notes:
 
@@ -289,11 +291,13 @@ Update docs when:
 1. The designer adds or corrects product judgment.
 2. Implementation reveals that a rule is not precise enough.
 3. A flow has an undefined state, failure path, or exception.
-4. Architecture choices, data sources, external services, or environment conditions change.
-5. Mock, engineering mode, or local verification hides a product gap.
-6. A new security, abuse, permission, or data exposure risk appears.
-7. Acceptance criteria are insufficient or tests accept half-built behavior.
-8. A capability changes stage: current mainline, disabled, future work, or historical reference.
+4. Important product decisions, alternatives, tradeoffs, or reassessment triggers change.
+5. Architecture choices, data sources, external services, or environment conditions change.
+6. Mock, engineering mode, or local verification hides a product gap.
+7. A new product contradiction, impossible state, incentive mismatch, or data-truth conflict appears.
+8. A new security, abuse, permission, or data exposure risk appears.
+9. Acceptance criteria are insufficient or tests accept half-built behavior.
+10. A capability changes stage: current mainline, disabled, future work, or historical reference.
 
 Writeback targets:
 
@@ -303,6 +307,8 @@ Writeback targets:
 - Open questions: `docs/en/05_PM_QUESTIONS.md`
 - Flows and states: `docs/en/06_FLOWS_AND_STATES.md`
 - Capability loops: `docs/en/07_CAPABILITY_MAP.md`
+- Decision log: `docs/en/17_DECISION_LOG.md`
+- Product contradictions: `docs/en/18_CONTRADICTION_AUDIT.md`
 - Architecture decisions: `docs/en/08_ARCHITECTURE_DECISIONS.md`
 - Data source of truth: `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
 - Environment differences: `docs/en/10_ENVIRONMENT_MODEL.md`

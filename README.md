@@ -96,6 +96,9 @@ Both language tracks contain the same document structure:
 - `14_DOCS_MAINTENANCE.md` - source-of-truth maintenance and archive rules.
 - `15_NATURAL_LANGUAGE_EXAMPLES.md` - phrases you can use with an agent.
 - `16_WORKFLOW_MODULES.md` - full checklist of workflow modules.
+- `17_DECISION_LOG.md` - product-language decision log with alternatives and tradeoffs.
+- `18_CONTRADICTION_AUDIT.md` - active audit for flow conflicts, impossible states, and product contradictions.
+- `DECISIONS/0001-template.md` - copyable decision record template.
 
 ## When Is It Okay To Start Coding?
 
@@ -106,6 +109,8 @@ Only start implementation when:
 - The first capability appears in the capability map
 - Important PM questions are answered, or clearly marked as not blocking the current pass
 - Architecture, data source, environment, and defense risks have at least a minimum decision
+- Non-goals and known uncertainties are explicit enough to prevent scope creep
+- Product contradictions and impossible states have been checked
 - The acceptance criteria are clear enough to verify
 
 If these are missing, do not rush into code. Stable source docs make the build phase more stable.
@@ -122,6 +127,8 @@ Do not treat documentation as a one-time setup task. Development will reveal thi
 - Admin / ops / audit needs
 - Abuse cases and defense requirements
 - Acceptance criteria the first tests did not cover
+- Old decisions the agent may try to overturn without context
+- Product contradictions, impossible states, and incentive mismatches
 
 When this happens, do not only patch the code. Update the matching source-of-truth doc so the next agent does not repeat the same mistake.
 

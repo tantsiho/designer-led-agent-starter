@@ -45,3 +45,11 @@ What does version one need to prove?
 What should version one not do yet?
 
 - To be filled
+
+## Explicit Non-Goals
+
+This section prevents scope creep. The agent must not turn these into "quick additions" or "things that seem expected."
+
+| Non-Goal | Why It Is Out | When To Reassess | How To Respond If Requested |
+|---|---|---|---|
+| To be filled | To be filled | To be filled | To be filled |

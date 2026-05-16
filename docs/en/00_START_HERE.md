@@ -9,9 +9,11 @@ The template workflow is:
 3. Ask PM questions
 4. After the designer answers, update source-of-truth docs
 5. Create a capability map
-6. Make architecture, data source, environment, and defense decisions
-7. Only then start implementation
-8. Audit after implementation and write discoveries back
+6. Record important decisions, known uncertainties, and explicit non-goals
+7. Make architecture, data source, environment, and defense decisions
+8. Actively find product contradictions and impossible states
+9. Only then start implementation
+10. Audit after implementation and write discoveries back
 
 This order is not a one-time setup. Every new feature, risk, environment difference, or product judgment should return to the docs, update source truth, and then continue.
 
@@ -35,6 +37,8 @@ Produce or update:
 - `05_PM_QUESTIONS.md`
 - `06_FLOWS_AND_STATES.md`
 - `07_CAPABILITY_MAP.md`
+- `17_DECISION_LOG.md`
+- `18_CONTRADICTION_AUDIT.md`
 
 If the design draft is too large, process it in batches and record what has and has not been organized.
 
@@ -48,6 +52,9 @@ After every implementation pass, decide whether to update:
 - PM questions
 - flows / states
 - capability map
+- decision log
+- known uncertainties
+- product contradictions / impossible states
 - architecture decisions
 - data source of truth
 - environment model

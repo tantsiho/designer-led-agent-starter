@@ -87,3 +87,23 @@ This feature is not in the direction I want. Do not change code directly. First 
 ```text
 Report which source truth this maps to, what changed, what was verified, what was not verified, whether mock or engineering mode was used, and what launch checks are still needed.
 ```
+
+## When Recording Decisions
+
+```text
+Write this product decision into DECISION_LOG: why it was decided, which alternatives were rejected, what the tradeoffs are, and when it should be reassessed.
+```
+
+```text
+This is not an engineering ADR. Write it in product language so the next agent does not overturn it later.
+```
+
+## When Finding Product Contradictions
+
+```text
+Do not implement. First use CONTRADICTION_AUDIT to check flow conflict, business contradiction, impossible state, incentive mismatch, and data inconsistency.
+```
+
+```text
+Find where this design makes user states, data truth, permissions, or copy contradict each other.
+```

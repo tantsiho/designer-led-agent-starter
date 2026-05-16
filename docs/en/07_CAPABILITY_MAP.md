@@ -18,6 +18,8 @@ This document breaks features into capability loops. Before implementing, the ag
 | Tests | To be filled |
 | Verification method | To be filled |
 | Launch risk | To be filled |
+| Known uncertainties | To be filled |
+| Explicit non-goals | To be filled |
 | Unfinished work | To be filled |
 
 ## Capability Classification
@@ -38,3 +40,13 @@ For every capability, ask:
 - Are error states handled?
 - Do tests verify the real flow?
 - Is it only available in engineering mode?
+- Does it depend on an unresolved product, legal, payment, pricing, data, or provider decision?
+- Does this capability violate an explicit non-goal in `02_PRODUCT_TRUTH.md`?
+
+## Known Uncertainties
+
+When the agent encounters these, it must not invent a fixed answer. It should ask, degrade, or mark the item as blocked.
+
+| Uncertainty | Affected Capability | Risk | Current Handling | Decision Owner |
+|---|---|---|---|---|
+| To be filled | To be filled | To be filled | stop / degrade / future work | To be filled |
