@@ -1,5 +1,7 @@
 # Designer-Led Agent Starter
 
+English | [繁體中文](README.zh.md)
+
 A starter template for non-engineer product designers who use AI coding agents to turn messy product ideas or long design drafts into a verifiable MVP.
 
 The goal is not to generate a production-grade system in one shot. The goal is to make the agent slow down, extract product truth, ask PM-style questions, create source-of-truth docs, and only then build one capability at a time.
@@ -72,6 +74,8 @@ The agent should infer whether the current task is design intake, rule extractio
 - `docs/` - complete Traditional Chinese source-of-truth document set.
 - `examples/simple-booking-app/README.md` - English example.
 - `examples/simple-booking-app/README.zh.md` - Traditional Chinese example.
+- `LICENSE` - canonical MIT License in English.
+- `LICENSE.zh.md` - unofficial Traditional Chinese reference translation of the MIT License.
 
 Both language tracks contain the same document structure:
 
