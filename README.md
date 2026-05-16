@@ -36,12 +36,14 @@ Use it as a disciplined MVP workflow, not as a production guarantee.
 ## Quick Start
 
 1. Copy this template into a new project.
-2. Copy `AGENTS.template.md` to the project root as `AGENTS.md`.
-3. Put your rough design notes into `docs/01_RAW_DESIGN.md`.
+2. Choose a language track:
+   - English: copy `AGENTS.en.template.md` to the project root as `AGENTS.md`, then use `docs/en/`.
+   - Traditional Chinese: copy `AGENTS.template.md` to the project root as `AGENTS.md`, then use `docs/`.
+3. Put your rough design notes into `docs/en/01_RAW_DESIGN.md` or `docs/01_RAW_DESIGN.md`.
 4. Ask your AI agent, in natural language:
 
 ```text
-This is my product design draft. Do not implement yet. First read AGENTS.md and docs/00_START_HERE.md, then extract product truth, roles, rules, flows, contradictions, and PM questions.
+This is my product design draft. Do not implement yet. First read AGENTS.md and docs/en/00_START_HERE.md, then extract product truth, roles, rules, flows, contradictions, and PM questions.
 ```
 
 5. Answer the PM questions.
@@ -64,24 +66,32 @@ The agent should infer whether the current task is design intake, rule extractio
 
 ## Repository Map
 
-- `AGENTS.template.md` - hard operating rules for the AI agent. Copy it to `AGENTS.md` in a new project.
-- `docs/00_START_HERE.md` - agent entry point.
-- `docs/01_RAW_DESIGN.md` - raw product notes. They can be messy and long.
-- `docs/02_PRODUCT_TRUTH.md` - what the product is, is not, and who it is for.
-- `docs/03_GLOSSARY.md` - terms and definitions.
-- `docs/04_RULES.md` - hard rules, forbidden behavior, exceptions, stage classification.
-- `docs/05_PM_QUESTIONS.md` - PM questions and designer answers.
-- `docs/06_FLOWS_AND_STATES.md` - flows, state machines, failure paths.
-- `docs/07_CAPABILITY_MAP.md` - capability closure map.
-- `docs/08_ARCHITECTURE_DECISIONS.md` - architecture choices and tradeoffs.
-- `docs/09_DATA_SOURCE_OF_TRUTH.md` - persistence and data ownership.
-- `docs/10_ENVIRONMENT_MODEL.md` - local, test, staging, production differences.
-- `docs/11_RISK_AND_DEFENSE.md` - abuse cases, security boundaries, audit needs.
-- `docs/12_ACCEPTANCE_AND_VERIFICATION.md` - acceptance criteria and verification tiers.
-- `docs/13_BUILD_AUDIT.md` - post-build audit log.
-- `docs/14_DOCS_MAINTENANCE.md` - source-of-truth maintenance and archive rules.
-- `docs/15_NATURAL_LANGUAGE_EXAMPLES.md` - phrases you can use with an agent.
-- `docs/16_WORKFLOW_MODULES.md` - full checklist of workflow modules.
+- `AGENTS.en.template.md` - English hard operating rules for the AI agent. Copy it to `AGENTS.md` in an English project.
+- `AGENTS.template.md` - Traditional Chinese hard operating rules for the AI agent. Copy it to `AGENTS.md` in a Chinese project.
+- `docs/en/` - complete English source-of-truth document set.
+- `docs/` - complete Traditional Chinese source-of-truth document set.
+- `examples/simple-booking-app/README.md` - English example.
+- `examples/simple-booking-app/README.zh.md` - Traditional Chinese example.
+
+Both language tracks contain the same document structure:
+
+- `00_START_HERE.md` - agent entry point.
+- `01_RAW_DESIGN.md` - raw product notes. They can be messy and long.
+- `02_PRODUCT_TRUTH.md` - what the product is, is not, and who it is for.
+- `03_GLOSSARY.md` - terms and definitions.
+- `04_RULES.md` - hard rules, forbidden behavior, exceptions, stage classification.
+- `05_PM_QUESTIONS.md` - PM questions and designer answers.
+- `06_FLOWS_AND_STATES.md` - flows, state machines, failure paths.
+- `07_CAPABILITY_MAP.md` - capability closure map.
+- `08_ARCHITECTURE_DECISIONS.md` - architecture choices and tradeoffs.
+- `09_DATA_SOURCE_OF_TRUTH.md` - persistence and data ownership.
+- `10_ENVIRONMENT_MODEL.md` - local, test, staging, production differences.
+- `11_RISK_AND_DEFENSE.md` - abuse cases, security boundaries, audit needs.
+- `12_ACCEPTANCE_AND_VERIFICATION.md` - acceptance criteria and verification tiers.
+- `13_BUILD_AUDIT.md` - post-build audit log.
+- `14_DOCS_MAINTENANCE.md` - source-of-truth maintenance and archive rules.
+- `15_NATURAL_LANGUAGE_EXAMPLES.md` - phrases you can use with an agent.
+- `16_WORKFLOW_MODULES.md` - full checklist of workflow modules.
 
 ## When Is It Okay To Start Coding?
 
@@ -122,6 +132,22 @@ When this happens, do not only patch the code. Update the matching source-of-tru
 > 設計者負責產品真相。代理負責工程閉環。
 
 最重要的規則是：不要一開始就叫 AI 寫 app。先叫它抽規則、問問題、建立真源文件。真源穩了，後面才會穩。
+
+## 中文快速開始
+
+1. 把這份模板複製到新專案。
+2. 複製 `AGENTS.template.md` 到專案根目錄，命名為 `AGENTS.md`。
+3. 把粗糙設計稿放進 `docs/01_RAW_DESIGN.md`。
+4. 用自然語言要求代理：
+
+```text
+這是我的產品設計稿。先不要實作。請先讀 AGENTS.md 和 docs/00_START_HERE.md，整理產品真相、角色、規則、流程、矛盾和 PM 問題。
+```
+
+5. 回答 PM 問題。
+6. 要求代理更新真源文件。
+7. 真源文件夠穩後，再開始做第一條核心能力。
+8. 每次實作後，要求代理把新規則、風險、環境差異和驗收缺口寫回文件。
 
 ## Status
 
