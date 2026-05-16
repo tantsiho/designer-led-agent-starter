@@ -14,6 +14,19 @@ This is not a one-time planning step. The source-of-truth docs should keep growi
 
 You do not need to understand databases, APIs, auth, tests, deployment, or security vocabulary before you start. You do need to describe the product as completely as you can, and answer product judgment questions when the agent asks.
 
+## Origin
+
+This template was extracted from the development process behind [HAIBUNKA](https://haibunka.com), a real creator-platform product.
+
+It came out of roughly three months of AI-assisted product and engineering work, including:
+
+- an 80,000-word source-of-truth design corpus
+- 200+ continuously evolving specification, verification, and audit documents
+- 500+ implementation files
+- repeated loops of product clarification, capability closure, audit, and launch-readiness checks
+
+This is not a theoretical prompt collection. It is a distilled workflow from a real project where product rules, implementation details, environment gaps, and agent mistakes had to be made explicit over time.
+
 ## What This Helps With
 
 - Turn long, messy design drafts into product truth, rules, roles, flows, and acceptance criteria
