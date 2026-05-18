@@ -184,3 +184,12 @@ Every batch report should say:
 - permission contradiction
 - copy contradiction
 - make the agent actively find contradictions instead of only organizing input
+
+## 23. Cutover And Incident Lessons
+
+- repo migration does not equal a complete production environment
+- external dashboard / provider gates must be listed
+- schema drift needs runtime preflight
+- production is not an agent load-test target
+- public reads may degrade under control, high-risk mutations must fail closed
+- incident review should write back into specs, runbooks, and acceptance gates

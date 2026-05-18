@@ -107,3 +107,13 @@
 ```text
 請找出這份設計裡哪些地方會讓使用者狀態、資料真源、權限或文案互相矛盾。
 ```
+
+## 要做 cutover / 上線事故復盤時
+
+```text
+請不要只說 migration 已完成。請用 CUTOVER_AND_INCIDENT_LESSONS 檢查 env、auth、storage、email、provider dashboard、schema drift、rollback 和 production smoke gate。
+```
+
+```text
+這次 production 問題請整理成 incident lesson：發生了什麼、根因分類、已補自動化、仍需人工 gate、之後固定流程，以及哪些驗證層級不能混淆。
+```

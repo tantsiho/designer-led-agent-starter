@@ -107,3 +107,13 @@ Do not implement. First use CONTRADICTION_AUDIT to check flow conflict, business
 ```text
 Find where this design makes user states, data truth, permissions, or copy contradict each other.
 ```
+
+## When Handling Cutover / Production Incident Review
+
+```text
+Do not only say migration is done. Use CUTOVER_AND_INCIDENT_LESSONS to check env, auth, storage, email, provider dashboard, schema drift, rollback, and production smoke gates.
+```
+
+```text
+Turn this production issue into an incident lesson: what happened, root cause category, what was automated, which manual gates remain, the fixed process going forward, and which verification levels must not be confused.
+```

@@ -56,11 +56,12 @@ If a task involves product understanding, flows, identity, payments, orders, per
 6. `docs/en/07_CAPABILITY_MAP.md`
 7. `docs/en/17_DECISION_LOG.md`
 8. `docs/en/18_CONTRADICTION_AUDIT.md`
-9. `docs/en/08_ARCHITECTURE_DECISIONS.md`
-10. `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
-11. `docs/en/10_ENVIRONMENT_MODEL.md`
-12. `docs/en/11_RISK_AND_DEFENSE.md`
-13. `docs/en/12_ACCEPTANCE_AND_VERIFICATION.md`
+9. `docs/en/19_CUTOVER_AND_INCIDENT_LESSONS.md`
+10. `docs/en/08_ARCHITECTURE_DECISIONS.md`
+11. `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
+12. `docs/en/10_ENVIRONMENT_MODEL.md`
+13. `docs/en/11_RISK_AND_DEFENSE.md`
+14. `docs/en/12_ACCEPTANCE_AND_VERIFICATION.md`
 
 Notes:
 
@@ -201,6 +202,13 @@ Explain:
 
 Record the result in `docs/en/10_ENVIRONMENT_MODEL.md`.
 
+Additional rules:
+
+- repo migration completion does not mean external Auth / Storage / Email / OAuth / provider dashboards are complete.
+- production is not an agent load-test target; repeated full verification should default to staging / preview first.
+- public reads may degrade under control, but high-risk mutations must fail closed.
+- cutover, external-provider, and production-incident lessons must be written back into `docs/en/19_CUTOVER_AND_INCIDENT_LESSONS.md`.
+
 ## 9. Defense / Risk Gate
 
 For any account, payment, order, data, content, permission, admin, or callback flow, check:
@@ -294,10 +302,11 @@ Update docs when:
 4. Important product decisions, alternatives, tradeoffs, or reassessment triggers change.
 5. Architecture choices, data sources, external services, or environment conditions change.
 6. Mock, engineering mode, or local verification hides a product gap.
-7. A new product contradiction, impossible state, incentive mismatch, or data-truth conflict appears.
-8. A new security, abuse, permission, or data exposure risk appears.
-9. Acceptance criteria are insufficient or tests accept half-built behavior.
-10. A capability changes stage: current mainline, disabled, future work, or historical reference.
+7. A cutover, provider dashboard, schema drift, storage/auth/email/env, or production incident lesson appears.
+8. A new product contradiction, impossible state, incentive mismatch, or data-truth conflict appears.
+9. A new security, abuse, permission, or data exposure risk appears.
+10. Acceptance criteria are insufficient or tests accept half-built behavior.
+11. A capability changes stage: current mainline, disabled, future work, or historical reference.
 
 Writeback targets:
 
@@ -309,6 +318,7 @@ Writeback targets:
 - Capability loops: `docs/en/07_CAPABILITY_MAP.md`
 - Decision log: `docs/en/17_DECISION_LOG.md`
 - Product contradictions: `docs/en/18_CONTRADICTION_AUDIT.md`
+- Cutover / incident lessons: `docs/en/19_CUTOVER_AND_INCIDENT_LESSONS.md`
 - Architecture decisions: `docs/en/08_ARCHITECTURE_DECISIONS.md`
 - Data source of truth: `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
 - Environment differences: `docs/en/10_ENVIRONMENT_MODEL.md`

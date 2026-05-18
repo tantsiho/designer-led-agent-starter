@@ -111,6 +111,7 @@ Both language tracks contain the same document structure:
 - `16_WORKFLOW_MODULES.md` - full checklist of workflow modules.
 - `17_DECISION_LOG.md` - product-language decision log with alternatives and tradeoffs.
 - `18_CONTRADICTION_AUDIT.md` - active audit for flow conflicts, impossible states, and product contradictions.
+- `19_CUTOVER_AND_INCIDENT_LESSONS.md` - production cutover, external gate, and incident-learning template.
 - `DECISIONS/0001-template.md` - copyable decision record template.
 
 ## When Is It Okay To Start Coding?
@@ -124,6 +125,7 @@ Only start implementation when:
 - Architecture, data source, environment, and defense risks have at least a minimum decision
 - Non-goals and known uncertainties are explicit enough to prevent scope creep
 - Product contradictions and impossible states have been checked
+- Production / provider / cutover gates are separated from local completion
 - The acceptance criteria are clear enough to verify
 
 If these are missing, do not rush into code. Stable source docs make the build phase more stable.

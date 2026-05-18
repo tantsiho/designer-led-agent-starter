@@ -56,11 +56,12 @@
 6. `docs/07_CAPABILITY_MAP.md`
 7. `docs/17_DECISION_LOG.md`
 8. `docs/18_CONTRADICTION_AUDIT.md`
-9. `docs/08_ARCHITECTURE_DECISIONS.md`
-10. `docs/09_DATA_SOURCE_OF_TRUTH.md`
-11. `docs/10_ENVIRONMENT_MODEL.md`
-12. `docs/11_RISK_AND_DEFENSE.md`
-13. `docs/12_ACCEPTANCE_AND_VERIFICATION.md`
+9. `docs/19_CUTOVER_AND_INCIDENT_LESSONS.md`
+10. `docs/08_ARCHITECTURE_DECISIONS.md`
+11. `docs/09_DATA_SOURCE_OF_TRUTH.md`
+12. `docs/10_ENVIRONMENT_MODEL.md`
+13. `docs/11_RISK_AND_DEFENSE.md`
+14. `docs/12_ACCEPTANCE_AND_VERIFICATION.md`
 
 補充：
 
@@ -201,6 +202,13 @@
 
 結果必須寫入或更新 `docs/10_ENVIRONMENT_MODEL.md`。
 
+補充：
+
+- repo migration 完成不等於外部 Auth / Storage / Email / OAuth / provider dashboard 已完成。
+- production 不是代理壓測場；完整重複驗證預設先跑 staging / preview。
+- public read 可以受控降級，高風險 mutation 必須 fail closed。
+- cutover、外部 provider、production incident 的教訓必須寫回 `docs/19_CUTOVER_AND_INCIDENT_LESSONS.md`。
+
 ## 9. 防禦 / 風險 Gate
 
 任何涉及帳號、付款、訂單、資料、內容、權限、admin、外部 callback 的功能，必須檢查：
@@ -294,10 +302,11 @@
 4. 重要產品決策、替代方案、取捨或重估條件改變。
 5. 架構選擇、資料真源、外部服務或環境條件改變。
 6. 發現 mock、engineering mode 或本地驗證掩蓋產品缺口。
-7. 發現新的產品矛盾、impossible state、誘因不一致或資料真源衝突。
-8. 發現新的安全、濫用、權限或資料外露風險。
-9. 發現驗收條件不足或測試接受半套。
-10. 某能力被改成現在主線、關閉中、未來工程或歷史參考。
+7. 發現 cutover、provider dashboard、schema drift、storage/auth/email/env 或 production incident 教訓。
+8. 發現新的產品矛盾、impossible state、誘因不一致或資料真源衝突。
+9. 發現新的安全、濫用、權限或資料外露風險。
+10. 發現驗收條件不足或測試接受半套。
+11. 某能力被改成現在主線、關閉中、未來工程或歷史參考。
 
 回寫目標：
 
@@ -309,6 +318,7 @@
 - 能力閉環：`docs/07_CAPABILITY_MAP.md`
 - 決策紀錄：`docs/17_DECISION_LOG.md`
 - 產品矛盾：`docs/18_CONTRADICTION_AUDIT.md`
+- Cutover / incident lessons：`docs/19_CUTOVER_AND_INCIDENT_LESSONS.md`
 - 架構決策：`docs/08_ARCHITECTURE_DECISIONS.md`
 - 資料真源：`docs/09_DATA_SOURCE_OF_TRUTH.md`
 - 環境差異：`docs/10_ENVIRONMENT_MODEL.md`

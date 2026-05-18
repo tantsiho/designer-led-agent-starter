@@ -10,7 +10,7 @@
 4. 設計者回答後，更新真源文件
 5. 建立能力地圖
 6. 記錄重要決策、已知不確定性與明確不做事項
-7. 做架構、資料真源、環境、防禦判斷
+7. 做架構、資料真源、環境、防禦與 cutover 判斷
 8. 主動找產品矛盾與 impossible state
 9. 才開始實作
 10. 實作後稽核與回寫
@@ -39,6 +39,7 @@
 - `07_CAPABILITY_MAP.md`
 - `17_DECISION_LOG.md`
 - `18_CONTRADICTION_AUDIT.md`
+- `19_CUTOVER_AND_INCIDENT_LESSONS.md`
 
 若設計稿太大，分批整理，但要留下「已整理範圍」與「尚未整理範圍」。
 
@@ -58,6 +59,7 @@
 - 架構決策
 - 資料真源
 - 環境模型
+- cutover / incident lessons
 - 風險防禦
 - 驗收驗證
 - build audit

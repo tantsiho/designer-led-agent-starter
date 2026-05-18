@@ -111,6 +111,7 @@ Agent 應該自行判斷目前任務是設計輸入、規則抽取、澄清、�
 - `16_WORKFLOW_MODULES.md` - 完整工作流模組 checklist。
 - `17_DECISION_LOG.md` - 用產品語言記錄決策、替代方案與取捨。
 - `18_CONTRADICTION_AUDIT.md` - 主動檢查流程衝突、impossible state 與產品矛盾。
+- `19_CUTOVER_AND_INCIDENT_LESSONS.md` - production cutover、外部 gate 與 incident lesson 模板。
 - `DECISIONS/0001-template.md` - 可複製的決策紀錄模板。
 
 ## 什麼時候可以開始寫 Code
@@ -124,6 +125,7 @@ Agent 應該自行判斷目前任務是設計輸入、規則抽取、澄清、�
 - 架構、資料真源、環境與防禦風險至少有基本決策
 - 明確不做事項與已知不確定性已標出，避免 scope creep
 - 產品矛盾與 impossible state 已檢查
+- production / provider / cutover gate 已和本地完成分開
 - 驗收條件清楚到可以驗證
 
 如果這些還缺，不要急著寫 code。真源文件穩，後面的實作才會穩。

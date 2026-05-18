@@ -184,3 +184,12 @@
 - permission contradiction
 - copy contradiction
 - 讓 agent 主動發現矛盾，而不是只照單整理
+
+## 23. Cutover 與 incident lessons
+
+- repo migration 不等於完整 production environment
+- 外部 dashboard / provider gate 必須列出
+- schema drift 要有 runtime preflight
+- production 不做代理壓測
+- public read 可受控降級，高風險 mutation 必須 fail closed
+- incident 復盤要寫回規範、runbook 與驗收 gate
