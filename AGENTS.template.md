@@ -57,14 +57,12 @@
 7. `docs/17_DECISION_LOG.md`
 8. `docs/18_CONTRADICTION_AUDIT.md`
 9. `docs/19_CUTOVER_AND_INCIDENT_LESSONS.md`
-10. `docs/20_OPERATIONAL_ATTENTION.md`
-11. `docs/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`
-12. `docs/22_CONCURRENCY_AND_IDEMPOTENCY.md`
-13. `docs/08_ARCHITECTURE_DECISIONS.md`
-14. `docs/09_DATA_SOURCE_OF_TRUTH.md`
-15. `docs/10_ENVIRONMENT_MODEL.md`
-16. `docs/11_RISK_AND_DEFENSE.md`
-17. `docs/12_ACCEPTANCE_AND_VERIFICATION.md`
+10. `docs/20_DESIGNER_DIRECTION.md`
+11. `docs/08_ARCHITECTURE_DECISIONS.md`
+12. `docs/09_DATA_SOURCE_OF_TRUTH.md`
+13. `docs/10_ENVIRONMENT_MODEL.md`
+14. `docs/11_RISK_AND_DEFENSE.md`
+15. `docs/12_ACCEPTANCE_AND_VERIFICATION.md`
 
 補充：
 
@@ -211,9 +209,7 @@
 - production 不是代理壓測場；完整重複驗證預設先跑 staging / preview。
 - public read 可以受控降級，高風險 mutation 必須 fail closed。
 - cutover、外部 provider、production incident 的教訓必須寫回 `docs/19_CUTOVER_AND_INCIDENT_LESSONS.md`。
-- 長流程、背景工作、callback 或人工處理狀態必須寫回 `docs/20_OPERATIONAL_ATTENTION.md`。
-- 禁止路徑、direct route、direct API、capability off 與缺 env/provider 的驗證必須寫回 `docs/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`。
-- 重複提交、重試、replay、lock、transaction 與副作用順序必須寫回 `docs/22_CONCURRENCY_AND_IDEMPOTENCY.md`。
+- 當 agent 偏向一般模板、補了未確認假設、或改變產品方向時，必須回到 `docs/20_DESIGNER_DIRECTION.md` 與產品真源修正。
 
 ## 9. 防禦 / 風險 Gate
 
@@ -229,9 +225,7 @@
 8. URL / log / error message 洩漏
 9. rate limit / idempotency
 10. admin audit trail
-11. fail-closed behavior
-12. transaction boundary / side-effect order
-13. destructive action confirmation
+11. destructive action confirmation
 
 結果必須寫入或更新 `docs/11_RISK_AND_DEFENSE.md`。
 
@@ -327,9 +321,7 @@
 - 決策紀錄：`docs/17_DECISION_LOG.md`
 - 產品矛盾：`docs/18_CONTRADICTION_AUDIT.md`
 - Cutover / incident lessons：`docs/19_CUTOVER_AND_INCIDENT_LESSONS.md`
-- Operational attention：`docs/20_OPERATIONAL_ATTENTION.md`
-- Negative smoke / fail-closed：`docs/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`
-- Concurrency / idempotency：`docs/22_CONCURRENCY_AND_IDEMPOTENCY.md`
+- 設計師方向控制：`docs/20_DESIGNER_DIRECTION.md`
 - 架構決策：`docs/08_ARCHITECTURE_DECISIONS.md`
 - 資料真源：`docs/09_DATA_SOURCE_OF_TRUTH.md`
 - 環境差異：`docs/10_ENVIRONMENT_MODEL.md`

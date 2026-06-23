@@ -12,7 +12,7 @@ The template workflow is:
 6. Record important decisions, known uncertainties, and explicit non-goals
 7. Make architecture, data source, environment, defense, and cutover decisions
 8. Actively find product contradictions and impossible states
-9. For high-risk flows, define operational attention, negative smoke, and concurrency / idempotency checks
+9. Check whether designer direction is clear enough to prevent generic-template drift
 10. Only then start implementation
 11. Audit after implementation and write discoveries back
 
@@ -41,9 +41,7 @@ Produce or update:
 - `17_DECISION_LOG.md`
 - `18_CONTRADICTION_AUDIT.md`
 - `19_CUTOVER_AND_INCIDENT_LESSONS.md`
-- `20_OPERATIONAL_ATTENTION.md`
-- `21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`
-- `22_CONCURRENCY_AND_IDEMPOTENCY.md`
+- `20_DESIGNER_DIRECTION.md`
 
 If the design draft is too large, process it in batches and record what has and has not been organized.
 
@@ -64,9 +62,7 @@ After every implementation pass, decide whether to update:
 - data source of truth
 - environment model
 - cutover / incident lessons
-- operational attention
-- negative smoke / fail-closed
-- concurrency / idempotency
+- designer direction control
 - risk and defense
 - acceptance and verification
 - build audit

@@ -57,14 +57,12 @@ If a task involves product understanding, flows, identity, permissions, data per
 7. `docs/en/17_DECISION_LOG.md`
 8. `docs/en/18_CONTRADICTION_AUDIT.md`
 9. `docs/en/19_CUTOVER_AND_INCIDENT_LESSONS.md`
-10. `docs/en/20_OPERATIONAL_ATTENTION.md`
-11. `docs/en/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`
-12. `docs/en/22_CONCURRENCY_AND_IDEMPOTENCY.md`
-13. `docs/en/08_ARCHITECTURE_DECISIONS.md`
-14. `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
-15. `docs/en/10_ENVIRONMENT_MODEL.md`
-16. `docs/en/11_RISK_AND_DEFENSE.md`
-17. `docs/en/12_ACCEPTANCE_AND_VERIFICATION.md`
+10. `docs/en/20_DESIGNER_DIRECTION.md`
+11. `docs/en/08_ARCHITECTURE_DECISIONS.md`
+12. `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
+13. `docs/en/10_ENVIRONMENT_MODEL.md`
+14. `docs/en/11_RISK_AND_DEFENSE.md`
+15. `docs/en/12_ACCEPTANCE_AND_VERIFICATION.md`
 
 Notes:
 
@@ -211,9 +209,7 @@ Additional rules:
 - production is not an agent load-test target; repeated full verification should default to staging / preview first.
 - public reads may degrade under control, but high-risk mutations must fail closed.
 - cutover, external-provider, and production-incident lessons must be written back into `docs/en/19_CUTOVER_AND_INCIDENT_LESSONS.md`.
-- long-running, background, callback, or manual-handling states must be written back into `docs/en/20_OPERATIONAL_ATTENTION.md`.
-- blocked path, direct route, direct API, capability-off, and missing env/provider checks must be written back into `docs/en/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`.
-- duplicate submission, retry, replay, lock, transaction, and side-effect ordering must be written back into `docs/en/22_CONCURRENCY_AND_IDEMPOTENCY.md`.
+- when the agent drifts into a generic template, invents unconfirmed assumptions, or changes product direction, return to `docs/en/20_DESIGNER_DIRECTION.md` and the product source truth.
 
 ## 9. Defense / Risk Gate
 
@@ -229,9 +225,7 @@ For any account, data, content, permission, admin, external callback, background
 8. URL / log / error message leaks
 9. rate limits / idempotency
 10. admin audit trail
-11. fail-closed behavior
-12. transaction boundary / side-effect order
-13. destructive action confirmation
+11. destructive action confirmation
 
 Record the result in `docs/en/11_RISK_AND_DEFENSE.md`.
 
@@ -327,9 +321,7 @@ Writeback targets:
 - Decision log: `docs/en/17_DECISION_LOG.md`
 - Product contradictions: `docs/en/18_CONTRADICTION_AUDIT.md`
 - Cutover / incident lessons: `docs/en/19_CUTOVER_AND_INCIDENT_LESSONS.md`
-- Operational attention: `docs/en/20_OPERATIONAL_ATTENTION.md`
-- Negative smoke / fail-closed: `docs/en/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`
-- Concurrency / idempotency: `docs/en/22_CONCURRENCY_AND_IDEMPOTENCY.md`
+- Designer direction control: `docs/en/20_DESIGNER_DIRECTION.md`
 - Architecture decisions: `docs/en/08_ARCHITECTURE_DECISIONS.md`
 - Data source of truth: `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
 - Environment differences: `docs/en/10_ENVIRONMENT_MODEL.md`

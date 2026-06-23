@@ -112,9 +112,7 @@ Agent 應該自行判斷目前任務是設計輸入、規則抽取、澄清、�
 - `17_DECISION_LOG.md` - 用產品語言記錄決策、替代方案與取捨。
 - `18_CONTRADICTION_AUDIT.md` - 主動檢查流程衝突、impossible state 與產品矛盾。
 - `19_CUTOVER_AND_INCIDENT_LESSONS.md` - production cutover、外部 gate 與 incident lesson 模板。
-- `20_OPERATIONAL_ATTENTION.md` - 長流程、callback、背景工作與人工審核的 attention state。
-- `21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md` - 禁止路徑驗證與 fail-closed 規則。
-- `22_CONCURRENCY_AND_IDEMPOTENCY.md` - 重複提交、重試、replay、鎖定、transaction 與 idempotency 規則。
+- `20_DESIGNER_DIRECTION.md` - 設計師方向控制：修正 agent 偏移、保護產品意圖，讓實作回到真源。
 - `DECISIONS/0001-template.md` - 可複製的決策紀錄模板。
 
 ## 什麼時候可以開始寫 Code
@@ -129,7 +127,7 @@ Agent 應該自行判斷目前任務是設計輸入、規則抽取、澄清、�
 - 明確不做事項與已知不確定性已標出，避免 scope creep
 - 產品矛盾與 impossible state 已檢查
 - production / provider / cutover gate 已和本地完成分開
-- 高風險流程的 operational attention、negative smoke、concurrency / idempotency 風險已明確
+- 設計師方向、明確不做事項與已知不確定性清楚到能避免 agent 偏移
 - 驗收條件清楚到可以驗證
 
 如果這些還缺，不要急著寫 code。真源文件穩，後面的實作才會穩。
@@ -148,9 +146,8 @@ Agent 應該自行判斷目前任務是設計輸入、規則抽取、澄清、�
 - 第一輪測試沒有涵蓋的驗收條件
 - agent 可能在缺少脈絡時推翻的舊決策
 - 產品矛盾、impossible state、誘因不一致
-- 長流程需要 attention state，而不是假裝完成
-- 應該被擋的 negative smoke 路徑
-- 重複提交、重試、replay、鎖定、transaction 或 idempotency 缺口
+- agent 偏向一般模板的地方
+- 需要設計者修正後才能繼續寫 code 的產品判斷
 
 發生這些事時，不要只 patch code。請更新對應真源文件，讓下一個 agent 不會重踩同一個坑。
 

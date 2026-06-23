@@ -22,12 +22,9 @@
 - fake account / spam / rate limit
 - admin 操作缺 audit
 - destructive action 缺確認
-- 高風險 mutation 沒有 fail-closed
-- transaction boundary 不清楚
-- 副作用在 durable write 前被宣告完成
 
 ## 防禦設計
 
-| 功能 | 權限檢查 | Idempotency | Audit | Rate limit | Error policy | Attention / fail-closed |
-|---|---|---|---|---|---|---|
-| 待填 | 待填 | 待填 | 待填 | 待填 | 待填 | 待填 |
+| 功能 | 權限檢查 | Idempotency | Audit | Rate limit | Error policy |
+|---|---|---|---|---|---|
+| 待填 | 待填 | 待填 | 待填 | 待填 | 待填 |

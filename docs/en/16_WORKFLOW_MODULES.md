@@ -194,26 +194,11 @@ Every batch report should say:
 - public reads may degrade under control, high-risk mutations must fail closed
 - incident review should write back into specs, runbooks, and acceptance gates
 
-## 24. Operational Attention
+## 24. Designer Direction
 
-- long-running flows should not use only success / failed
-- queued, running, retryable_failed, and manual_review_required should be visible
-- waiting for callback or manual handling is not completion
-- attention summaries need trace, reason, next step, age, and owner
-- large data sets should be summarized, not dumped into logs or reports
-
-## 25. Negative Smoke And Fail-Closed
-
-- test blocked paths, not only success paths
-- direct route / direct API must not bypass UI gates
-- capability-off behavior must match across UI, API, copy, and tests
-- missing env / provider must not fake success for high-risk mutations
-- production smoke should default to low-frequency, non-destructive, rollback-safe checks
-
-## 26. Concurrency And Idempotency
-
-- frontend disabled buttons are not concurrency protection
-- duplicate, retry, replay, and rerun background jobs need a strategy
-- idempotency key scope, unique constraint, and transaction boundary must be explicit
-- external side effects should be claimed complete only after durable write commit
-- rehearsal should include sequential submit, retry, replay, job rerun, and concurrent edits
+- the designer can correct agent direction in natural language
+- when the agent drifts into a generic template, return to PRODUCT_TRUTH
+- when the agent invents unconfirmed assumptions, turn them into PM questions
+- future capabilities must not be packaged as current mainline
+- explicit non-goals should be written back into NON_GOALS
+- important tradeoffs should be written into the decision log so future agents do not overturn them

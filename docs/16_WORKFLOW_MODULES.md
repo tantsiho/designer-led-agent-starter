@@ -194,26 +194,11 @@
 - public read 可受控降級，高風險 mutation 必須 fail closed
 - incident 復盤要寫回規範、runbook 與驗收 gate
 
-## 24. Operational attention
+## 24. Designer direction
 
-- 長流程不要只分 success / failed
-- queued、running、retryable_failed、manual_review_required 要能被看見
-- 等待 callback 或人工處理不是完成
-- attention summary 要有 trace、原因、下一步、age 與 owner
-- 大量資料只摘要，不傾倒敏感 id 或內容
-
-## 25. Negative smoke 與 fail-closed
-
-- 成功路徑之外，也要測應該被拒絕的路徑
-- direct route / direct API 不得繞過 UI gate
-- capability off 要 UI、API、文案、測試一致
-- 缺 env / provider 時高風險 mutation 不得假成功
-- production smoke 預設低頻、非破壞、可回滾
-
-## 26. Concurrency 與 idempotency
-
-- 前端 disable button 不是併發保護
-- duplicate、retry、replay、背景 job 重跑都要有策略
-- idempotency key scope、unique constraint、transaction boundary 要明確
-- 外部副作用應在 durable write commit 後才宣告完成
-- rehearsal 要包含連續提交、重試、replay、job 重跑與同時修改
+- 設計師可以用自然語言修正 agent 方向
+- agent 偏向一般模板時，要回到 PRODUCT_TRUTH
+- agent 補出未確認假設時，要改成 PM 問題
+- 未來能力不得包裝成現在主線
+- 明確不做事項要寫回 NON_GOALS
+- 重要取捨要寫回 decision log，避免後續 agent 推翻

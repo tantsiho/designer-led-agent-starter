@@ -13,8 +13,6 @@ A feature is not done just because the screen exists. Every capability should ch
 - error states are handled
 - important data survives refresh / restart
 - tests or smoke checks verify the real flow
-- negative smoke verifies forbidden paths are blocked
-- high-risk mutations have fail-closed, idempotency, or concurrency protection
 - docs are updated
 
 ## Verification Layers
@@ -27,21 +25,6 @@ A feature is not done just because the screen exists. Every capability should ch
 | local smoke | local flow | core paths | does not prove launch readiness |
 | non-engineering smoke | debug entries off | before launch | does not prove external providers work |
 | production-like / post-deploy | launch environment | external services, env, webhooks | does not guarantee no risk |
-
-## Negative Smoke And Fail-Closed
-
-Verification cannot only run the happy path. If a capability involves permissions, data writes, external callbacks, background work, or high-risk mutations, list at least one path that should fail.
-
-Common negative smoke:
-
-- unauthorized or wrong-role users are rejected
-- direct routes cannot bypass UI
-- direct API calls cannot bypass the frontend
-- disabled capabilities reject across every entry point
-- missing required env or external conditions do not fake success
-- duplicate submissions, retries, or replays do not create a second side effect
-
-If only the positive path was checked, the report must say: negative smoke is still incomplete.
 
 ## L0-L5 Verification Levels For Reports
 

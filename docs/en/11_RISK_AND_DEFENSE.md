@@ -22,12 +22,9 @@ This document records defensive thinking. MVPs still need basic risk judgment, e
 - fake account / spam / rate limit
 - admin action without audit
 - destructive action without confirmation
-- high-risk mutation without fail-closed behavior
-- unclear transaction boundary
-- side effects claimed complete before durable write
 
 ## Defense Design
 
-| Feature | Permission Check | Idempotency | Audit | Rate Limit | Error Policy | Attention / Fail-Closed |
-|---|---|---|---|---|---|---|
-| To be filled | To be filled | To be filled | To be filled | To be filled | To be filled | To be filled |
+| Feature | Permission Check | Idempotency | Audit | Rate Limit | Error Policy |
+|---|---|---|---|---|---|
+| To be filled | To be filled | To be filled | To be filled | To be filled | To be filled |
