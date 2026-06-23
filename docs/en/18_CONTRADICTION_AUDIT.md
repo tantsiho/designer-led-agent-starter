@@ -16,13 +16,13 @@ A truly designer-led agent should do more than "avoid making things up." It shou
 
 | Type | Check Question | Example |
 |---|---|---|
-| Flow conflict | Can two flows produce opposite outcomes? | cancellation and payment completion both succeed |
+| Flow conflict | Can two flows produce opposite outcomes? | cancellation and completion both succeed |
 | Business contradiction | Does the business promise conflict with the actual rule? | copy promises instant completion, but manual review is required |
-| Impossible state | Does the state machine allow an impossible state? | an order is both canceled and fulfilled |
+| Impossible state | Does the state machine allow an impossible state? | one record is both canceled and completed |
 | Incentive mismatch | Does the user's best move undermine the product goal? | users can exploit cancellation / retry loops |
 | Data inconsistency | Can two sources answer the same fact differently? | frontend says complete, DB says pending |
-| Permission contradiction | Does visible UI exceed role permissions? | a seller can see another seller's data |
-| Copy contradiction | Does copy imply a disabled capability is available? | button says pay now, but MVP has no payments |
+| Permission contradiction | Does visible UI exceed role permissions? | a regular member can see admin-only data |
+| Copy contradiction | Does copy imply a disabled capability is available? | button says activate now, but the capability is still disabled |
 
 ## Audit Table
 

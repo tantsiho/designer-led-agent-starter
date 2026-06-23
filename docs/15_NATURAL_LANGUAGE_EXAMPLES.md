@@ -117,3 +117,33 @@
 ```text
 這次 production 問題請整理成 incident lesson：發生了什麼、根因分類、已補自動化、仍需人工 gate、之後固定流程，以及哪些驗證層級不能混淆。
 ```
+
+## 要找長流程的營運注意事項時
+
+```text
+請用 OPERATIONAL_ATTENTION 檢查這條流程：哪些狀態不是完成也不是失敗，而是 queued、running、retryable_failed、manual_review_required 或需要人工追蹤？
+```
+
+```text
+請不要把等待外部 callback 或人工處理包裝成完成。請列出 trace_id、attention_reason、next_action 和目前不能宣告完成的部分。
+```
+
+## 要做 negative smoke / fail-closed 時
+
+```text
+請不只測成功路徑，也測應該被擋的路徑：未授權、錯誤角色、direct route、direct API、capability off、缺 env/provider、duplicate 或 replay。
+```
+
+```text
+如果高風險 mutation 失敗，請確認它 fail closed：沒有假成功、沒有半套資料、沒有誤導 audit 或通知。
+```
+
+## 要檢查併發與 idempotency 時
+
+```text
+請檢查這個操作如果被連點、重試、callback replay、背景 job 重跑或多分頁同時觸發，會不會產生第二次副作用。
+```
+
+```text
+請列出 idempotency key scope、transaction boundary、重試結果、commit 後才發生的副作用，以及尚未驗證的併發情境。
+```

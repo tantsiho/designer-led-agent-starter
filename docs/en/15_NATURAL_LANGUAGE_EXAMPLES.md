@@ -117,3 +117,33 @@ Do not only say migration is done. Use CUTOVER_AND_INCIDENT_LESSONS to check env
 ```text
 Turn this production issue into an incident lesson: what happened, root cause category, what was automated, which manual gates remain, the fixed process going forward, and which verification levels must not be confused.
 ```
+
+## When Finding Operational Attention In Long Flows
+
+```text
+Use OPERATIONAL_ATTENTION to check this flow: which states are not complete and not failed, but queued, running, retryable_failed, manual_review_required, or need human follow-up?
+```
+
+```text
+Do not package external-callback waiting or manual handling as completion. List the trace_id, attention_reason, next_action, and which part cannot be claimed complete yet.
+```
+
+## When Running Negative Smoke / Fail-Closed Checks
+
+```text
+Do not only test the success path. Also test paths that should be blocked: unauthorized user, wrong role, direct route, direct API, capability off, missing env/provider, duplicate, or replay.
+```
+
+```text
+If a high-risk mutation fails, confirm it fails closed: no fake success, no partial record, and no misleading audit or notification.
+```
+
+## When Checking Concurrency And Idempotency
+
+```text
+Check whether this operation creates a second side effect if it is double-clicked, retried, callback-replayed, rerun as a background job, or triggered from multiple tabs.
+```
+
+```text
+List the idempotency key scope, transaction boundary, retry result, side effects that happen only after commit, and unverified concurrency cases.
+```

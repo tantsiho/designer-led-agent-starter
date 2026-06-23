@@ -42,8 +42,8 @@ This is not a theoretical prompt collection. It is a distilled workflow from a r
 
 - It does not make a complete product in one prompt
 - It does not decide your product truth for you
-- It does not replace senior engineering review, security review, legal review, payment compliance, or production SRE
-- It does not guarantee external providers, payments, email, deployment, or production smoke tests will work immediately
+- It does not replace senior engineering review, security review, legal review, regulated compliance, or production SRE
+- It does not guarantee external providers, regulated workflows, email, deployment, or production smoke tests will work immediately
 - It does not turn a weak product idea into a strong one automatically
 
 Use it as a disciplined MVP workflow, not as a production guarantee.
@@ -112,6 +112,9 @@ Both language tracks contain the same document structure:
 - `17_DECISION_LOG.md` - product-language decision log with alternatives and tradeoffs.
 - `18_CONTRADICTION_AUDIT.md` - active audit for flow conflicts, impossible states, and product contradictions.
 - `19_CUTOVER_AND_INCIDENT_LESSONS.md` - production cutover, external gate, and incident-learning template.
+- `20_OPERATIONAL_ATTENTION.md` - attention states for long-running, callback, background, and manual-review flows.
+- `21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md` - blocked-path verification and fail-closed rules.
+- `22_CONCURRENCY_AND_IDEMPOTENCY.md` - duplicate, retry, replay, lock, transaction, and side-effect rules.
 - `DECISIONS/0001-template.md` - copyable decision record template.
 
 ## When Is It Okay To Start Coding?
@@ -126,6 +129,7 @@ Only start implementation when:
 - Non-goals and known uncertainties are explicit enough to prevent scope creep
 - Product contradictions and impossible states have been checked
 - Production / provider / cutover gates are separated from local completion
+- Operational attention, negative smoke, and concurrency / idempotency risks are explicit for high-risk flows
 - The acceptance criteria are clear enough to verify
 
 If these are missing, do not rush into code. Stable source docs make the build phase more stable.
@@ -144,6 +148,9 @@ Do not treat documentation as a one-time setup task. Development will reveal thi
 - Acceptance criteria the first tests did not cover
 - Old decisions the agent may try to overturn without context
 - Product contradictions, impossible states, and incentive mismatches
+- Long-running work that needs attention states instead of fake completion
+- Negative smoke cases where forbidden paths should stay blocked
+- Duplicate, retry, replay, lock, transaction, or idempotency gaps
 
 When this happens, do not only patch the code. Update the matching source-of-truth doc so the next agent does not repeat the same mistake.
 

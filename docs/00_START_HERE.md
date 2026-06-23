@@ -12,8 +12,9 @@
 6. 記錄重要決策、已知不確定性與明確不做事項
 7. 做架構、資料真源、環境、防禦與 cutover 判斷
 8. 主動找產品矛盾與 impossible state
-9. 才開始實作
-10. 實作後稽核與回寫
+9. 對高風險流程補 operational attention、negative smoke 與 concurrency / idempotency 判斷
+10. 才開始實作
+11. 實作後稽核與回寫
 
 這個順序不是只跑一次。每次新功能、新風險、新環境差異、新產品判斷出現時，都要回到文件，更新真源，再繼續往下做。
 
@@ -40,6 +41,9 @@
 - `17_DECISION_LOG.md`
 - `18_CONTRADICTION_AUDIT.md`
 - `19_CUTOVER_AND_INCIDENT_LESSONS.md`
+- `20_OPERATIONAL_ATTENTION.md`
+- `21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`
+- `22_CONCURRENCY_AND_IDEMPOTENCY.md`
 
 若設計稿太大，分批整理，但要留下「已整理範圍」與「尚未整理範圍」。
 
@@ -60,6 +64,9 @@
 - 資料真源
 - 環境模型
 - cutover / incident lessons
+- operational attention
+- negative smoke / fail-closed
+- concurrency / idempotency
 - 風險防禦
 - 驗收驗證
 - build audit

@@ -40,7 +40,7 @@ For every capability, ask:
 - Are error states handled?
 - Do tests verify the real flow?
 - Is it only available in engineering mode?
-- Does it depend on an unresolved product, legal, payment, pricing, data, or provider decision?
+- Does it depend on an unresolved product, legal, pricing, data, regulated-workflow, or provider decision?
 - Does this capability violate an explicit non-goal in `02_PRODUCT_TRUTH.md`?
 
 ## Known Uncertainties

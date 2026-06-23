@@ -30,7 +30,7 @@ Table 存在不代表欄位、index、RLS、storage policy、schema cache 都符
 
 ### 3. Public read 可以受控降級，高風險 mutation 必須 fail closed
 
-Production 不健康時，公開讀取可以短 TTL cache、local snapshot、明確空狀態或受控錯誤保護 availability。但建立、付款、權限、退款、刪除、admin mutation 不得假成功。
+Production 不健康時，公開讀取可以短 TTL cache、local snapshot、明確空狀態或受控錯誤保護 availability。但建立、權限、刪除、admin 操作或其他高風險 mutation 不得假成功。
 
 ### 4. Production 不是代理壓測場
 

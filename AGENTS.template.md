@@ -46,7 +46,7 @@
 
 ## 1. 代理進場入口（必讀）
 
-若任務涉及產品理解、流程判讀、身份、付款、訂單、權限、資料保存、上線、安全、營運、文件真源，開始前先讀：
+若任務涉及產品理解、流程判讀、身份、權限、資料保存、外部服務、高風險 mutation、上線、安全、營運、文件真源，開始前先讀：
 
 1. `docs/00_START_HERE.md`
 2. `docs/02_PRODUCT_TRUTH.md`
@@ -57,11 +57,14 @@
 7. `docs/17_DECISION_LOG.md`
 8. `docs/18_CONTRADICTION_AUDIT.md`
 9. `docs/19_CUTOVER_AND_INCIDENT_LESSONS.md`
-10. `docs/08_ARCHITECTURE_DECISIONS.md`
-11. `docs/09_DATA_SOURCE_OF_TRUTH.md`
-12. `docs/10_ENVIRONMENT_MODEL.md`
-13. `docs/11_RISK_AND_DEFENSE.md`
-14. `docs/12_ACCEPTANCE_AND_VERIFICATION.md`
+10. `docs/20_OPERATIONAL_ATTENTION.md`
+11. `docs/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`
+12. `docs/22_CONCURRENCY_AND_IDEMPOTENCY.md`
+13. `docs/08_ARCHITECTURE_DECISIONS.md`
+14. `docs/09_DATA_SOURCE_OF_TRUTH.md`
+15. `docs/10_ENVIRONMENT_MODEL.md`
+16. `docs/11_RISK_AND_DEFENSE.md`
+17. `docs/12_ACCEPTANCE_AND_VERIFICATION.md`
 
 補充：
 
@@ -150,7 +153,7 @@
 1. 不得刪除、註解、替換、簡化任何現有邏輯，除非使用者明確要求移除或重構。
 2. 優先只碰本次需求直接相關檔案；需要跨檔時，只開必要相依檔案。
 3. UI 任務預設只動視覺、排版、className、必要組件結構；除非需求本身涉及流程。
-4. 流程 / 安全 / 身份 / 訂單 / 金流 / 上線 / E2E 任務，只動與缺口直接相關的邏輯與驗證，不做順手重構。
+4. 流程 / 安全 / 身份 / 權限 / 外部服務 / 高風險 mutation / 上線 / E2E 任務，只動與缺口直接相關的邏輯與驗證，不做順手重構。
 5. 不因為某段程式碼像死碼、可優化、沒用到，就自行刪改。
 6. UI 任務完成前，必做一次「重複功能 / 重複入口 / 重複按鈕」自查。
 
@@ -161,7 +164,7 @@
 1. 這條能力是 frontend-only、full-stack，還是需要獨立 backend？
 2. 是否需要資料庫持久化？
 3. 是否需要身份、權限、session、re-auth？
-4. 是否需要檔案、圖片、通知、排程、webhook、金流或外部 provider？
+4. 是否需要檔案、圖片、通知、排程、webhook、付費服務或外部 provider？
 5. 哪些可以 mock，哪些不能 mock？
 6. 現在的選擇是否會堵死未來核心能力？
 7. 是否需要 admin / ops / audit 介面？
@@ -208,22 +211,27 @@
 - production 不是代理壓測場；完整重複驗證預設先跑 staging / preview。
 - public read 可以受控降級，高風險 mutation 必須 fail closed。
 - cutover、外部 provider、production incident 的教訓必須寫回 `docs/19_CUTOVER_AND_INCIDENT_LESSONS.md`。
+- 長流程、背景工作、callback 或人工處理狀態必須寫回 `docs/20_OPERATIONAL_ATTENTION.md`。
+- 禁止路徑、direct route、direct API、capability off 與缺 env/provider 的驗證必須寫回 `docs/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`。
+- 重複提交、重試、replay、lock、transaction 與副作用順序必須寫回 `docs/22_CONCURRENCY_AND_IDEMPOTENCY.md`。
 
 ## 9. 防禦 / 風險 Gate
 
-任何涉及帳號、付款、訂單、資料、內容、權限、admin、外部 callback 的功能，必須檢查：
+任何涉及帳號、資料、內容、權限、admin、外部 callback、背景工作或高風險 mutation 的功能，必須檢查：
 
 1. 越權讀取 / 寫入
 2. 重複提交
 3. webhook / callback replay
-4. refund / abuse / fraud
+4. 濫用 / spam / rate limit
 5. direct route access
 6. hidden API access
 7. 敏感資料外露
 8. URL / log / error message 洩漏
 9. rate limit / idempotency
 10. admin audit trail
-11. destructive action confirmation
+11. fail-closed behavior
+12. transaction boundary / side-effect order
+13. destructive action confirmation
 
 結果必須寫入或更新 `docs/11_RISK_AND_DEFENSE.md`。
 
@@ -277,7 +285,7 @@
    - 會改變能力階段
    - 會引入外部付費服務或敏感 provider
    - 會刪除或大幅重構既有邏輯
-   - 會影響資料歸屬、身份、權限、安全、付款或上線風險
+   - 會影響資料歸屬、身份、權限、安全、付費服務或上線風險
 
 3. 每一批回報都必須講清楚：
    - 為什麼改
@@ -319,6 +327,9 @@
 - 決策紀錄：`docs/17_DECISION_LOG.md`
 - 產品矛盾：`docs/18_CONTRADICTION_AUDIT.md`
 - Cutover / incident lessons：`docs/19_CUTOVER_AND_INCIDENT_LESSONS.md`
+- Operational attention：`docs/20_OPERATIONAL_ATTENTION.md`
+- Negative smoke / fail-closed：`docs/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`
+- Concurrency / idempotency：`docs/22_CONCURRENCY_AND_IDEMPOTENCY.md`
 - 架構決策：`docs/08_ARCHITECTURE_DECISIONS.md`
 - 資料真源：`docs/09_DATA_SOURCE_OF_TRUTH.md`
 - 環境差異：`docs/10_ENVIRONMENT_MODEL.md`

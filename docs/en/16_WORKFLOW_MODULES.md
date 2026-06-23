@@ -72,7 +72,7 @@ This document lists the non-coding work that appears in a long-running AI-agent 
 - unauthorized access
 - duplicate submission
 - callback / webhook replay
-- refund / payment abuse
+- abuse / spam / rate limit
 - direct routes
 - hidden APIs
 - sensitive data exposure
@@ -123,7 +123,7 @@ This document lists the non-coding work that appears in a long-running AI-agent 
 
 - notifications should lead to the right context
 - after login, users should return to the original flow
-- buyer / seller / admin should not land in the wrong shell
+- different roles should not land in the wrong shell
 - error, cancel, and done states need reasonable destinations
 
 ## 16. Public Narrative And Copy
@@ -193,3 +193,27 @@ Every batch report should say:
 - production is not an agent load-test target
 - public reads may degrade under control, high-risk mutations must fail closed
 - incident review should write back into specs, runbooks, and acceptance gates
+
+## 24. Operational Attention
+
+- long-running flows should not use only success / failed
+- queued, running, retryable_failed, and manual_review_required should be visible
+- waiting for callback or manual handling is not completion
+- attention summaries need trace, reason, next step, age, and owner
+- large data sets should be summarized, not dumped into logs or reports
+
+## 25. Negative Smoke And Fail-Closed
+
+- test blocked paths, not only success paths
+- direct route / direct API must not bypass UI gates
+- capability-off behavior must match across UI, API, copy, and tests
+- missing env / provider must not fake success for high-risk mutations
+- production smoke should default to low-frequency, non-destructive, rollback-safe checks
+
+## 26. Concurrency And Idempotency
+
+- frontend disabled buttons are not concurrency protection
+- duplicate, retry, replay, and rerun background jobs need a strategy
+- idempotency key scope, unique constraint, and transaction boundary must be explicit
+- external side effects should be claimed complete only after durable write commit
+- rehearsal should include sequential submit, retry, replay, job rerun, and concurrent edits

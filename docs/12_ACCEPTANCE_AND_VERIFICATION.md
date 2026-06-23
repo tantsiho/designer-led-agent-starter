@@ -13,6 +13,8 @@
 - 錯誤狀態可處理
 - 重新整理 / 重啟後不丟失關鍵資料
 - 測試或 smoke 驗證真流程
+- negative smoke 驗證禁止路徑真的被擋
+- 高風險 mutation 有 fail-closed、idempotency 或併發保護
 - 文件已更新
 
 ## 驗證分層
@@ -25,6 +27,21 @@
 | local smoke | 本地流程 | 核心路徑 | 不代表上線 |
 | non-engineering smoke | 關掉工程入口 | 上線前 | 不代表外部 provider 真通 |
 | production-like / post-deploy | 上線環境 | 外部服務、env、webhook | 不保證無風險 |
+
+## Negative Smoke 與 Fail-Closed
+
+驗證不能只跑成功路徑。若能力涉及權限、資料寫入、外部 callback、背景工作或高風險 mutation，至少要列出一個應該失敗的路徑。
+
+常見 negative smoke：
+
+- 未授權或錯誤角色被拒絕
+- direct route 不能繞過 UI
+- direct API 不能繞過前端
+- capability 關閉時所有入口都拒絕
+- 缺必要 env 或外部條件時不會假成功
+- 重複提交、retry 或 replay 不產生第二次副作用
+
+若只驗證正向路徑，回報必須標明：negative smoke 尚未完成。
 
 ## 回報用 L0-L5 驗證層級
 

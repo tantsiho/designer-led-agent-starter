@@ -46,7 +46,7 @@ This file defines operating rules for AI agents. The user may not be an engineer
 
 ## 1. Required Agent Entry Point
 
-If a task involves product understanding, flows, identity, payments, orders, permissions, data persistence, launch, security, operations, or source-of-truth docs, read these first:
+If a task involves product understanding, flows, identity, permissions, data persistence, external services, high-risk mutations, launch, security, operations, or source-of-truth docs, read these first:
 
 1. `docs/en/00_START_HERE.md`
 2. `docs/en/02_PRODUCT_TRUTH.md`
@@ -57,11 +57,14 @@ If a task involves product understanding, flows, identity, payments, orders, per
 7. `docs/en/17_DECISION_LOG.md`
 8. `docs/en/18_CONTRADICTION_AUDIT.md`
 9. `docs/en/19_CUTOVER_AND_INCIDENT_LESSONS.md`
-10. `docs/en/08_ARCHITECTURE_DECISIONS.md`
-11. `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
-12. `docs/en/10_ENVIRONMENT_MODEL.md`
-13. `docs/en/11_RISK_AND_DEFENSE.md`
-14. `docs/en/12_ACCEPTANCE_AND_VERIFICATION.md`
+10. `docs/en/20_OPERATIONAL_ATTENTION.md`
+11. `docs/en/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`
+12. `docs/en/22_CONCURRENCY_AND_IDEMPOTENCY.md`
+13. `docs/en/08_ARCHITECTURE_DECISIONS.md`
+14. `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
+15. `docs/en/10_ENVIRONMENT_MODEL.md`
+16. `docs/en/11_RISK_AND_DEFENSE.md`
+17. `docs/en/12_ACCEPTANCE_AND_VERIFICATION.md`
 
 Notes:
 
@@ -150,7 +153,7 @@ After the user answers, write the answer back into source-of-truth docs.
 1. Do not delete, comment out, replace, or simplify existing logic unless the user explicitly asks.
 2. Prefer touching only files directly related to the request. Open dependencies only as needed.
 3. UI tasks should default to visual, layout, className, and necessary component-structure changes unless the request involves flow behavior.
-4. Flow, security, identity, order, payment, launch, and E2E tasks should change only the relevant logic and verification.
+4. Flow, security, identity, permission, external-service, high-risk mutation, launch, and E2E tasks should change only the relevant logic and verification.
 5. Do not modify code just because it looks unused or optimizable.
 6. Before finishing UI work, check for duplicate features, duplicate entry points, and duplicate buttons.
 
@@ -161,7 +164,7 @@ Before implementation, decide:
 1. Is this capability frontend-only, full-stack, or does it need an independent backend?
 2. Does it need persistent storage?
 3. Does it need identity, permissions, sessions, or re-authentication?
-4. Does it need files, images, notifications, scheduling, webhooks, payments, or external providers?
+4. Does it need files, images, notifications, scheduling, webhooks, paid services, or external providers?
 5. What can be mocked, and what cannot?
 6. Will the current choice block future core capabilities?
 7. Does it need admin, ops, or audit surfaces?
@@ -208,22 +211,27 @@ Additional rules:
 - production is not an agent load-test target; repeated full verification should default to staging / preview first.
 - public reads may degrade under control, but high-risk mutations must fail closed.
 - cutover, external-provider, and production-incident lessons must be written back into `docs/en/19_CUTOVER_AND_INCIDENT_LESSONS.md`.
+- long-running, background, callback, or manual-handling states must be written back into `docs/en/20_OPERATIONAL_ATTENTION.md`.
+- blocked path, direct route, direct API, capability-off, and missing env/provider checks must be written back into `docs/en/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`.
+- duplicate submission, retry, replay, lock, transaction, and side-effect ordering must be written back into `docs/en/22_CONCURRENCY_AND_IDEMPOTENCY.md`.
 
 ## 9. Defense / Risk Gate
 
-For any account, payment, order, data, content, permission, admin, or callback flow, check:
+For any account, data, content, permission, admin, external callback, background job, or high-risk mutation, check:
 
 1. unauthorized read / write
 2. duplicate submission
 3. webhook / callback replay
-4. refund / abuse / fraud
+4. abuse / spam / rate limit
 5. direct route access
 6. hidden API access
 7. sensitive data exposure
 8. URL / log / error message leaks
 9. rate limits / idempotency
 10. admin audit trail
-11. destructive action confirmation
+11. fail-closed behavior
+12. transaction boundary / side-effect order
+13. destructive action confirmation
 
 Record the result in `docs/en/11_RISK_AND_DEFENSE.md`.
 
@@ -277,7 +285,7 @@ When checking whether a capability is truly done or launchable:
    - change a capability stage
    - introduce paid external services or sensitive providers
    - delete or heavily refactor existing logic
-   - affect data ownership, identity, permissions, security, payments, or launch risk
+   - affect data ownership, identity, permissions, security, paid services, or launch risk
 
 3. Every batch report must say:
    - why the change was made
@@ -319,6 +327,9 @@ Writeback targets:
 - Decision log: `docs/en/17_DECISION_LOG.md`
 - Product contradictions: `docs/en/18_CONTRADICTION_AUDIT.md`
 - Cutover / incident lessons: `docs/en/19_CUTOVER_AND_INCIDENT_LESSONS.md`
+- Operational attention: `docs/en/20_OPERATIONAL_ATTENTION.md`
+- Negative smoke / fail-closed: `docs/en/21_NEGATIVE_SMOKE_AND_FAIL_CLOSED.md`
+- Concurrency / idempotency: `docs/en/22_CONCURRENCY_AND_IDEMPOTENCY.md`
 - Architecture decisions: `docs/en/08_ARCHITECTURE_DECISIONS.md`
 - Data source of truth: `docs/en/09_DATA_SOURCE_OF_TRUTH.md`
 - Environment differences: `docs/en/10_ENVIRONMENT_MODEL.md`

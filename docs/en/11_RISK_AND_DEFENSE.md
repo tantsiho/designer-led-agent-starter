@@ -1,6 +1,6 @@
 # 11 RISK AND DEFENSE
 
-This document records defensive thinking. MVPs still need basic risk judgment, especially around accounts, data, payments, content, permissions, admin, or external callbacks.
+This document records defensive thinking. MVPs still need basic risk judgment, especially around accounts, data, content, permissions, admin, external callbacks, background work, or high-risk mutations.
 
 ## Abuse Cases
 
@@ -19,13 +19,15 @@ This document records defensive thinking. MVPs still need basic risk judgment, e
 - error messages leaking internal logic
 - direct route bypassing UI
 - direct API calls bypassing frontend
-- refund / payment / order abuse
 - fake account / spam / rate limit
 - admin action without audit
 - destructive action without confirmation
+- high-risk mutation without fail-closed behavior
+- unclear transaction boundary
+- side effects claimed complete before durable write
 
 ## Defense Design
 
-| Feature | Permission Check | Idempotency | Audit | Rate Limit | Error Policy |
-|---|---|---|---|---|---|
-| To be filled | To be filled | To be filled | To be filled | To be filled | To be filled |
+| Feature | Permission Check | Idempotency | Audit | Rate Limit | Error Policy | Attention / Fail-Closed |
+|---|---|---|---|---|---|---|
+| To be filled | To be filled | To be filled | To be filled | To be filled | To be filled | To be filled |

@@ -16,13 +16,13 @@
 
 | 類型 | 檢查問題 | 例子 |
 |---|---|---|
-| Flow conflict | 兩條流程是否會產生相反結果？ | 取消流程與付款完成流程同時成立 |
+| Flow conflict | 兩條流程是否會產生相反結果？ | 取消流程與完成流程同時成立 |
 | Business contradiction | 商業承諾和實際規則是否衝突？ | 宣稱即時完成，但需要人工審核 |
-| Impossible state | 狀態機是否允許不可能狀態？ | 訂單同時是 canceled 與 fulfilled |
+| Impossible state | 狀態機是否允許不可能狀態？ | 同一筆資料同時是 canceled 與 completed |
 | Incentive mismatch | 使用者最佳行為是否會破壞產品目標？ | 使用者能靠取消 / 重試套利 |
 | Data inconsistency | 兩個真源是否會對同一事實給不同答案？ | 前端狀態說已完成，DB 說 pending |
-| Permission contradiction | UI 可見能力是否超出角色權限？ | seller 看得到其他 seller 資料 |
-| Copy contradiction | 文案是否暗示未開放能力已可用？ | 按鈕寫立即付款，但 MVP 不收款 |
+| Permission contradiction | UI 可見能力是否超出角色權限？ | 一般成員看得到管理者資料 |
+| Copy contradiction | 文案是否暗示未開放能力已可用？ | 按鈕寫立即啟用，但該能力仍關閉 |
 
 ## Audit Table
 

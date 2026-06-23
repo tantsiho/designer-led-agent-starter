@@ -30,7 +30,7 @@ A table existing does not prove columns, indexes, RLS, storage policy, or schema
 
 ### 3. Public reads may degrade under control, high-risk mutations must fail closed
 
-When production is unhealthy, public reads may use short TTL cache, local snapshots, explicit empty states, or controlled errors to protect availability. But creation, payment, permission, refund, delete, and admin mutations must not fake success.
+When production is unhealthy, public reads may use short TTL cache, local snapshots, explicit empty states, or controlled errors to protect availability. But creation, permission, delete, admin operations, or other high-risk mutations must not fake success.
 
 ### 4. Production is not an agent load-test target
 

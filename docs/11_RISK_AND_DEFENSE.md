@@ -1,6 +1,6 @@
 # 11 RISK AND DEFENSE
 
-這份文件記錄防禦思維。MVP 也需要基本風險判斷，尤其涉及帳號、資料、付款、內容、權限、admin 或外部 callback。
+這份文件記錄防禦思維。MVP 也需要基本風險判斷，尤其涉及帳號、資料、內容、權限、admin、外部 callback、背景工作或高風險 mutation。
 
 ## Abuse Cases
 
@@ -19,14 +19,15 @@
 - 錯誤訊息洩漏內部邏輯
 - direct route 繞過 UI
 - API 直接呼叫繞過前端
-- refund / payment / order abuse
 - fake account / spam / rate limit
 - admin 操作缺 audit
 - destructive action 缺確認
+- 高風險 mutation 沒有 fail-closed
+- transaction boundary 不清楚
+- 副作用在 durable write 前被宣告完成
 
 ## 防禦設計
 
-| 功能 | 權限檢查 | Idempotency | Audit | Rate limit | Error policy |
-|---|---|---|---|---|---|
-| 待填 | 待填 | 待填 | 待填 | 待填 | 待填 |
-
+| 功能 | 權限檢查 | Idempotency | Audit | Rate limit | Error policy | Attention / fail-closed |
+|---|---|---|---|---|---|---|
+| 待填 | 待填 | 待填 | 待填 | 待填 | 待填 | 待填 |
